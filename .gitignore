@@ -10,6 +10,13 @@ states/
 *.dbg.json
 *.tsbuildinfo
 
-# Optional
+# Python / Brownie / test artifacts
+__pycache__/
+build/
+reports/
+.history/
+.hypothesis/
+
+# Environment variables
 .env
 .env.local

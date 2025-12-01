@@ -1,0 +1,18 @@
+from brownie import accounts, network, config
+
+LOCAL_BLOCKCHAIN_ENVIRONMENTS = ["development", "ganache-local", "hardhat", "mainnet-fork", "ganache"]
+
+
+
+
+def get_account(index=None, id=None):
+    if index:
+        return accounts[index]
+    if network.show_active() in LOCAL_BLOCKCHAIN_ENVIRONMENTS:
+        print(accounts[0].balance())
+        return accountsp[0]
+    if id:
+        return accounts.load(id)
+    if network.show_active() in config["networks"]:
+        return accounts.add(config["wallets"]["from_key"])
+    return None
